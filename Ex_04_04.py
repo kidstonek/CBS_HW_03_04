@@ -17,7 +17,7 @@ def main():
         if 'rus' in text_input:
             raise MyException
         else:
-            print('our test is Ok')
+            print('our text is Ok')
     except MyException:
         print('ruzzians not allowed')
 
