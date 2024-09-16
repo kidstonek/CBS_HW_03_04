@@ -39,15 +39,8 @@ def div_(a: tuple) -> float:
     return a[0] / a[1]
 
 
-info()
-
-first_run = True
-
 while True:
-    if first_run:
-        first_run = False
-    else:
-        info()
+    info()
     user_choose = input('make your choose: ')
     match user_choose:
         case '1':

@@ -35,15 +35,9 @@ def coach_check(user_input: str) -> bool:
             return True
     return False
 
-info()
-
-first_run = True
 
 while True:
-    if first_run:
-        first_run = False
-    else:
-        info()
+    info()
     user_choose = input('\nmake your choose: ')
     match user_choose:
         case '1':
