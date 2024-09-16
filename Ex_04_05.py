@@ -25,12 +25,25 @@ class TrainerNotFound(Exception):
 
 
 def info() -> None:
+    print('\nMenu:')
     print('1 - види спорту\n2 - команда тренерів,\n3 - розклад тренувань,\n4 - вартість тренування\n5 - пошук за тренером\n0 - вихід')
 
 
+def coach_check(user_input: str) -> bool:
+    for coach in GYM['trainers']:
+        if user_input.lower() == coach.lower():
+            return True
+    return False
+
 info()
 
+first_run = True
+
 while True:
+    if first_run:
+        first_run = False
+    else:
+        info()
     user_choose = input('\nmake your choose: ')
     match user_choose:
         case '1':
@@ -42,10 +55,9 @@ while True:
         case '4':
             print(f'Our prices: {GYM["coasts"]}')
         case '5':
-            print('coach search')
             coach_search = input('Who are you looking for: ')
             try:
-                if coach_search.lower() in str(GYM['trainers']).lower():
+                if coach_check(coach_search):
                     print(f'We do have a coach {coach_search}')
                 else:
                     raise TrainerNotFound
