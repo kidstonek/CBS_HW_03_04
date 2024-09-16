@@ -9,7 +9,7 @@
 
 
 def info() -> None:
-    print(f'\n1: for sum\n2: for minus\n3: for multiply\n4: for div\n5: for pow\n9: for info\n0: for exit\n')
+    print(f'\n1: for sum\n2: for minus\n3: for multiply\n4: for div\n5: for pow\n0: for exit\n')
 
 
 def sum_(a: int, b: int) -> int:
@@ -41,7 +41,13 @@ def div_(a: tuple) -> float:
 
 info()
 
+first_run = True
+
 while True:
+    if first_run:
+        first_run = False
+    else:
+        info()
     user_choose = input('make your choose: ')
     match user_choose:
         case '1':
@@ -60,8 +66,6 @@ while True:
                 print(f'result = {pow_(arguments())}')
             except Exception as e:
                 print(f'Oooops you receive an ERROR: {e}')
-        case '9':
-            info()
         case '0':
             print('bye bye')
             break
